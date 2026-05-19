@@ -20,7 +20,7 @@ from src.utils import DATA_PROCESSED, ERCOT_HUB, ERCOT_ZONE
 
 st.set_page_config(page_title="ERCOT Price Analysis", layout="wide")
 
-PRICES_PATH  = DATA_PROCESSED / "ercot_rtm_prices.parquet"
+PRICES_PATH  = DATA_PROCESSED / "ercot_rtm_prices.csv"
 SUMMARY_PATH = DATA_PROCESSED / "ercot_rtm_summary.csv"
 
 COLORS = {"lz": "#1f77b4", "hb": "#ff7f0e", "capture": "#2ca02c"}
@@ -70,7 +70,7 @@ def load_summary() -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def load_prices() -> pd.DataFrame:
-    return pd.read_parquet(PRICES_PATH)
+    return pd.read_csv(PRICES_PATH)
 
 summary = load_summary()
 prices  = load_prices()

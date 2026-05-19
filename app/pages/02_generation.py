@@ -21,8 +21,8 @@ from src.utils import CAPACITY_MW, DATA_PROCESSED, PLANT_NAME
 
 st.set_page_config(page_title="Generation & Capacity Factors", layout="wide")
 
-GEN_PATH  = DATA_PROCESSED / "eia_generation.parquet"
-NREL_PATH = DATA_PROCESSED / "nrel_wind_resource.parquet"
+GEN_PATH  = DATA_PROCESSED / "eia_generation.csv"
+NREL_PATH = DATA_PROCESSED / "nrel_wind_resource.csv"
 P50_PATH  = DATA_PROCESSED / "nrel_p50_p90_summary.csv"
 
 NAMEPLATE_MW = 399.7   # EIA 860 confirmed (Phases 1 + 2)
@@ -43,7 +43,7 @@ if missing:
 # ---------------------------------------------------------------------------
 @st.cache_data(ttl=3600)
 def load_eia() -> pd.DataFrame:
-    return pd.read_parquet(GEN_PATH)
+    return pd.read_csv(GEN_PATH)
 
 @st.cache_data(ttl=3600)
 def load_nrel_summary() -> pd.DataFrame:

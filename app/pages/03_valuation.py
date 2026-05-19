@@ -22,7 +22,7 @@ from src.utils import CAPACITY_MW, DATA_PROCESSED, PLANT_NAME
 st.set_page_config(page_title="DCF Valuation", layout="wide")
 
 SUMMARY_PATH = DATA_PROCESSED / "valuation_summary.csv"
-DCF_PATHS = {s: DATA_PROCESSED / f"dcf_outputs_{s}.parquet" for s in ("base", "bull", "bear")}
+DCF_PATHS = {s: DATA_PROCESSED / f"dcf_outputs_{s}.csv" for s in ("base", "bull", "bear")}
 
 missing = [p.name for p in [SUMMARY_PATH, *DCF_PATHS.values()] if not p.exists()]
 if missing:
@@ -56,7 +56,7 @@ def load_summary() -> pd.DataFrame:
 
 @st.cache_data(ttl=3600)
 def load_dcf(scenario: str) -> pd.DataFrame:
-    return pd.read_parquet(DCF_PATHS[scenario])
+    return pd.read_csv(DCF_PATHS[scenario])
 
 vs     = load_summary().set_index("scenario")
 base   = load_dcf("base")
