@@ -19,7 +19,6 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.utils import CAPACITY_MW, DATA_PROCESSED, PLANT_NAME
 
-st.set_page_config(page_title="Generation & Capacity Factors", layout="wide")
 
 GEN_PATH  = DATA_PROCESSED / "eia_generation.csv"
 NREL_PATH = DATA_PROCESSED / "nrel_wind_resource.csv"

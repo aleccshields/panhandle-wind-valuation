@@ -13,7 +13,6 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.utils import OUTPUTS_IC_MEMO, PLANT_NAME
 
-st.set_page_config(page_title="IC Memo", layout="wide")
 
 st.title("Investment Committee Memorandum")
 st.caption(f"{PLANT_NAME}  |  Panhandle Wind Phases 1 & 2  |  Carson County, TX")

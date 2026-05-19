@@ -1,17 +1,33 @@
 """
-Root-level Streamlit entry point.
+Root-level Streamlit entry point for Streamlit Community Cloud.
 
-Streamlit Cloud requires the app entry point to be at the repository root.
-This file simply delegates to app/main.py, keeping all app logic in one place.
+Uses st.navigation() to explicitly register pages so they are found
+regardless of where the page files live relative to this script.
 """
 
 import sys
 from pathlib import Path
 
-# Ensure the repo root is on sys.path so `src` imports resolve correctly
-# whether the app is launched from the root or from inside app/.
-sys.path.insert(0, str(Path(__file__).parent))
+import streamlit as st
 
-# Import and run the main app — Streamlit re-executes this module on every
-# interaction, so the import is intentionally at module level.
-import app.main  # noqa: F401, E402  (side-effectful import)
+# Ensure src/ and app/ are importable from every page
+ROOT = Path(__file__).parent
+sys.path.insert(0, str(ROOT))
+
+st.set_page_config(
+    page_title="Panhandle Wind -- Valuation Engine",
+    page_icon=":wind_face:",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+pg = st.navigation(
+    [
+        st.Page("app/main.py",                        title="Overview",             icon=":material/home:"),
+        st.Page("app/pages/01_price_analysis.py",     title="ERCOT Price Analysis", icon=":material/price_change:"),
+        st.Page("app/pages/02_generation.py",         title="Generation & CFs",     icon=":material/bolt:"),
+        st.Page("app/pages/03_valuation.py",          title="DCF Valuation",        icon=":material/bar_chart:"),
+        st.Page("app/pages/04_ic_memo.py",            title="IC Memo",              icon=":material/description:"),
+    ]
+)
+pg.run()

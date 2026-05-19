@@ -19,7 +19,6 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.utils import CAPACITY_MW, DATA_PROCESSED, PLANT_NAME
 
-st.set_page_config(page_title="DCF Valuation", layout="wide")
 
 SUMMARY_PATH = DATA_PROCESSED / "valuation_summary.csv"
 DCF_PATHS = {s: DATA_PROCESSED / f"dcf_outputs_{s}.csv" for s in ("base", "bull", "bear")}

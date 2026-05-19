@@ -18,7 +18,6 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from src.utils import DATA_PROCESSED, ERCOT_HUB, ERCOT_ZONE
 
-st.set_page_config(page_title="ERCOT Price Analysis", layout="wide")
 
 PRICES_PATH  = DATA_PROCESSED / "ercot_rtm_prices.csv"
 SUMMARY_PATH = DATA_PROCESSED / "ercot_rtm_summary.csv"

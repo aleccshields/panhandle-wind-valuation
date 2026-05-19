@@ -25,14 +25,6 @@ from src.utils import (
 
 
 # ── Page configuration ─────────────────────────────────────────────────────────
-st.set_page_config(
-    page_title="Panhandle Wind — Valuation Engine",
-    page_icon="💨",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
-
 # ── Sidebar ────────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.title("💨 Panhandle Wind")
@@ -49,7 +41,7 @@ with st.sidebar:
 
     # Status indicators — these will be updated dynamically by each pipeline
     # module once the processed parquet files exist on disk.
-    processed_dir = Path("data/processed")
+    processed_dir = Path(__file__).parent.parent / "data" / "processed"
 
     def _status(label: str, filename: str) -> None:
         """Render a green checkmark or red dot based on file existence."""
@@ -57,10 +49,10 @@ with st.sidebar:
         icon = "✅" if exists else "🔴"
         st.markdown(f"{icon} {label}")
 
-    _status("ERCOT Prices (LZ_NORTH)", "ercot_rtm_prices.parquet")
-    _status("EIA Generation (860/923)", "eia_generation.parquet")
-    _status("NREL Wind Resource", "nrel_wind_resource.parquet")
-    _status("Financial Model", "dcf_outputs_base.parquet")
+    _status("ERCOT Prices (LZ_NORTH)", "ercot_rtm_prices.csv")
+    _status("EIA Generation (860/923)", "eia_generation.csv")
+    _status("NREL Wind Resource", "nrel_wind_resource.csv")
+    _status("Financial Model", "dcf_outputs_base.csv")
 
     st.markdown("---")
     st.caption("Built with public data · Not investment advice")
