@@ -1,0 +1,53 @@
+# ── Data directories ──────────────────────────────────────────────────────────
+# ERCOT DAM/RT settlement files can be hundreds of MB; never commit raw data.
+data/raw/
+data/processed/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+*.whl
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── OS artifacts ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Streamlit cache ───────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── Claude Code local settings (may contain allowed-command history w/ secrets) ─
+.claude/
+
+# ── outputs/ic_memo/ is intentionally tracked — memos are portfolio artifacts ─

@@ -1,0 +1,19 @@
+# ── Web app ───────────────────────────────────────────────────────────────────
+streamlit==1.45.1
+
+# ── Data manipulation ─────────────────────────────────────────────────────────
+pandas==2.2.3
+pyarrow==19.0.1          # Parquet I/O for processed data
+numpy==2.2.5
+scipy==1.15.3            # P50/P90 exceedance calculations
+numpy-financial==1.0.0   # IRR / NPV functions (removed from numpy core in 1.20)
+
+# ── HTTP & file I/O ───────────────────────────────────────────────────────────
+requests==2.32.3
+openpyxl==3.1.5          # EIA Excel workbooks
+
+# ── Visualization ─────────────────────────────────────────────────────────────
+plotly==6.0.1
+
+# ── Config & secrets ──────────────────────────────────────────────────────────
+python-dotenv==1.1.0
