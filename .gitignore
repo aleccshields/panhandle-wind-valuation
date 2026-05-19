@@ -1,7 +1,7 @@
 # ── Data directories ──────────────────────────────────────────────────────────
 # ERCOT DAM/RT settlement files can be hundreds of MB; never commit raw data.
 data/raw/
-data/processed/
+# data/processed/ is tracked so Streamlit Cloud has data to render without re-running pipelines.
 
 # ── Environment & secrets ─────────────────────────────────────────────────────
 .env

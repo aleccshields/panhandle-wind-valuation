@@ -1,0 +1,10 @@
+metric,value,unit,notes
+P50_AEP_MWh,1461098.0000,MWh/yr,Median annual generation (EIA923 method)
+P90_AEP_MWh,1136517.4000,MWh/yr,10th pct annual generation (EIA923_empirical_10th_pct)
+P50_CF,0.4173,fraction,P50 capacity factor
+P90_CF,0.3246,fraction,P90 capacity factor
+P90_P50_ratio,0.7779,fraction,Debt sizing haircut factor (< 1.0)
+EIA_10yr_avg_CF,0.4000,fraction,Empirical average CF from EIA 923 2015-2024
+NREL_P50_AEP_MWh,1370346.5958,MWh/yr,NREL WTK P50 (NREL_WTK)
+NREL_P90_AEP_MWh,1233311.9362,MWh/yr,NREL P50 * (1 - 10%) haircut
+Capacity_MW,399.7000,MW,EIA 860 confirmed nameplate
